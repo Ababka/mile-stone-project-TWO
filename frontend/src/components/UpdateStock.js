@@ -1,6 +1,5 @@
 // IMPORTS
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 
@@ -16,10 +15,6 @@ const UpdateStock = ({ stock }) => {
    const [show, setShow] = useState(false); // for modal
 
 
-
-   // useEffect section:
-
-
    // helper function section:
 
 // modal helper functions:
@@ -28,12 +23,12 @@ const handleShow = () => setShow(true); // opening the modal
 
 
 
-// fetch request
+  // fetch request for updating stock (PUT)
 const updateStock = async (e) => {
   e.preventDefault();
   try {
     const body = { symbol, stock_name, price };
-    const response = await fetch(`http://localhost:3006/stocks/${stock.stock_id}`, {
+    await fetch(`http://localhost:3006/stocks/${stock.stock_id}`, {
       method: 'PUT',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(body)

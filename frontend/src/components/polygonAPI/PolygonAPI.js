@@ -2,17 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import Stocks from './Stocks';
 
-
 // FUNCTIONAL COMPONENT
 const PolygonAPI = () => {
 // VANILLA JS SECTION
 
     // useState section
     const [stocks, setStocks] = useState([]);
-    const [search, setSearch] = useState('');
+    // const [search, setSearch] = useState('');
 
-
-    
     
 // HELPER FUNCTION SECTION
     // polygon api fetch request:
@@ -41,46 +38,35 @@ const PolygonAPI = () => {
     }, [])
 
 
-    // helper function
-    const handleChange = (e) => {
-        setSearch(e.target.value)
-    }
 
-    const filteredStocks = stocks.filter(stock => stock.T.toLowerCase().includes(search.toLowerCase()))
+    // helper function
+    // const handleChange = (e) => {
+    //     setSearch(e.target.value)
+    // }
+
+    // const filteredStocks = stocks.filter(stock => stock.T.toLowerCase().includes(search.toLowerCase()))
 
 
 // JSX SECTION
   return (
-    <div style={{color: 'white'}} className="stock-app">
-        <div className="stock-search">
-            <h3 style={{padding: "0"}}>Search a Stock from API</h3>
-            <h6 style={{padding: "0"}}>*Search by company's Ticker</h6>
-            <form>
-                <input type='text' placeholder='Search' onChange={handleChange}></input>
-                <select>
-                    <option value="selectStock"></option>
-                </select>
-            </form>
-            {/* <button
-                type='search'
-                class="btn btn-outline-primary"
-                onClick={() => polygonApi()}
-            >
-                Search
-            </button> */}
-        </div>
-        {filteredStocks.map(stock => {
-
-            return (
-                <Stocks key={stock.T} symbol={stock.T} price={stock.c}/>
-                )
-        })}
-
+    <div style={{color: 'white', display: 'flex', flexDirection: 'column'}} className="stock-app">
+        <h3>Search a Stock from API</h3>
+            <div className="searchInput">
+                <input type="text" placeholder='Enter Stock Symbol Here...'></input>
+            </div>
+            <div style={{display: 'flex', alignItems: 'flex-end'}} className='resultBoxPlusDisclaimer'>
+                <div className="dataResult">
+                    {stocks.map(stock => {
+                        return (
+                            <Stocks key={stock.T} symbol={stock.T} price={stock.c} />
+                        )
+                    })}
+                </div>
+            </div>
     </div>
     
   )
 }
-
 
 
 export default PolygonAPI;

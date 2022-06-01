@@ -3,12 +3,7 @@
 }
 
 body {
-  background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,0.9051995798319328) 0%, rgba(94,26,136,1) 100%);
-}
-
-.btn {
-  margin: 1px;
 }
 
 h2 {
@@ -18,25 +13,19 @@ h2 {
   color: white;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .modal{
   background: linear-gradient(90deg, rgba(2,0,36,0.9051995798319328) 0%, rgba(94,26,136,1) 100%);
   
 }
 .modal-body{
-  background: #232526;  /* fallback for old browsers */
+background: #232526;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 }
 .modal-header{
-  background: #232526;  /* fallback for old browsers */
+background: #232526;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
@@ -125,20 +114,19 @@ button.btn-close {
   background-color: red;
 }
 
-.options {
-  height: 30px;
-}
-
 .box div {
   z-index: -1;
 }
 
-.dis {
-  font-weight: bold;
-  color: red;
-  display: flex;
-  justify-content: center;
-  margin-top: 200px;
+.dataResult {
+  margin-top: 5px;
+  width: 267.25px;
+  height: 200px;
+  background-color: white;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 p {

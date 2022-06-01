@@ -1,3 +1,6 @@
+-- Queries used to set-up the postgreSQL database in the beginning on your local machine.
+-- This adds the beginning seed data to start with.
+
 CREATE DATABASE stocksapp;
 
 CREATE TABLE stocks(

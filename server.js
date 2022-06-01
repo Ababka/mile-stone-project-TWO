@@ -1,46 +1,31 @@
 // DEPENDENCIES
-const express = require('express');
-const cors = require('cors');
+const express = require('express'); // Node.js framework to help build the back-end. 
+const cors = require('cors'); // Cross Origin Resource Sharing - for our JavaScript to use outside scripts like our API calls.
 
 
 // CONFIGURATION
-require('dotenv').config();
-const PORT = process.env.PORT;
-const app = express();
+require('dotenv').config(); // to use the .env file.
+const PORT = process.env.PORT; // variable for the port number inside the .env file.
+const app = express(); // variable to use express framework.
 
 
 // MIDDLEWARE (happens between req & res)
-app.use(cors());
-app.use(express.json());
-// app.set('views', __dirname + '/views'); // grabs the views folder files.
-// app.use(express.static('public')); // access to public folder for css and images.
-// app.set('view engine', 'jsx'); // to be able to look at the views .jsx pages
-// app.engine('jsx', require('express-react-views').createEngine()); // importing 'express-react-views' to be able to use jsx
+app.use(cors()); // to use cors between HTTP requests and responses.
+app.use(express.json()); // to use express in a json format.
 
 
-
-// DATABASE
-
-
-
-// ROOT ROUTE (home page route)
+// ROOT ROUTE (home page route) - simple GET route for accessing the landing page for the back-end. (localhost)
 app.get('/', (req, res) => {
     res.send('Welcome to my full-stack stocks portfolio app')
 });
 
 
-// CONTROLLER ROUTE
+// CONTROLLER ROUTE - to route to the controller file for accessing all other CRUD routes.
 const stocksController = require('./controllers/stocks_controller');
 app.use('/stocks', stocksController);
 
 
-// // 404 PAGE (error page)
-// app.get('*', (req, res) => {
-//     res.render('error404')
-// });
-
-
-// SERVER LISTEN
+// SERVER LISTEN - access to back-end server
 app.listen(PORT, () => {
     console.log('We out here on port', PORT);
 });
